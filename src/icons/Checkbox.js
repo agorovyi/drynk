@@ -3,8 +3,6 @@ import React from 'react';
 const Checkbox = () => {
   return (
     <svg width="11px" height="8px" viewBox="0 0 11 8" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <desc>Created with Sketch.</desc>
-      <defs />
       <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Desktop_List" transform="translate(-898.000000, -306.000000)" fill="#73D593">
           <g id="Group-6" transform="translate(255.000000, 100.000000)">

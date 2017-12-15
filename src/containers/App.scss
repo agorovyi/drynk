@@ -136,6 +136,12 @@ $light-gray: #9e9a9f;
         position: absolute;
         z-index: 1;
         cursor: pointer;
+        background: none;
+        border: none;
+
+        &:hover svg > g > g {
+          fill: #446cb3;
+        }
       }
 
       h1 {
@@ -216,6 +222,11 @@ $light-gray: #9e9a9f;
           .product-info {
             flex-grow: 1;
             text-align: left;
+
+            h2 {
+              text-align: center;
+            }
+
             @include info-bottom();
 
             &__bottom {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Listview from './components/Listview';
+import Header from '../components/Header';
+import Listview from '../components/Listview';
 
 class App extends Component {
   state = {

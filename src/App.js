@@ -5,7 +5,6 @@ import Listview from './components/Listview';
 
 class App extends Component {
   state = {
-    data: this.props.data,
     searchTerm: '',
   };
 
@@ -16,7 +15,8 @@ class App extends Component {
   };
 
   render() {
-    const { data, searchTerm } = this.state;
+    const { searchTerm } = this.state;
+    const { data } = this.props;
 
     return (
       <div className="App">

@@ -1,13 +1,13 @@
 Drynk App
 ============
 
-**Drynk** is an LCBO products browsing app that was build with React.
+**Drynk**  :beer: :cocktail: :tropical_drink: :wine_glass: is an LCBO products browsing app that was built with React consuming LCBO API.
 
 Instructions
 ===============
 
 1. Ensure that `npm`, `node`(>= v6) and `yarn` are installed
-1. `yarn install`
+1. `yarn`
 2. `yarn start`
 3. Test by going to: [http://localhost:1337/api/items](http://localhost:1337/api/items)
 

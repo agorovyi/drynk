@@ -1,6 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { tryFetchData } from './api/fetchdata';
+
+tryFetchData()
+  .then(data => {
+    if (data) {
+      render(<App data={data.result} />, document.getElementById('root'));
+    }
+  })
+  .catch(error => {
+    console.error(error);
+  });

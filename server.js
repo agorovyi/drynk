@@ -3,12 +3,14 @@ var express = require('express'),
   request = require('request'),
   qs = require('querystring'),
   path = require('path'),
-  bodyParser = require('body-parser')
+  bodyParser = require('body-parser');
 
-var key = null; // Your LCBO API Key goes here
+var key = 'MDoyMjUzOWY0OC1lMDViLTExZTctYmE5MS1iNzI0MThmYjg5ZTI6WVcyZDVTYWNiUzdhS0tJVVNoWmdCazc1NmZiMExCZFFoQnZX';
 
 if (!key) {
-  throw new Error('You must register and specify your own \'Backend / Server\' type LCBO API Key.  Keys can be attained from: https://lcboapi.com/');
+  throw new Error(
+    "You must register and specify your own 'Backend / Server' type LCBO API Key.  Keys can be attained from: https://lcboapi.com/"
+  );
 }
 
 var expressRouter = function() {
@@ -19,12 +21,14 @@ var expressRouter = function() {
       url: 'https://lcboapi.com/products',
       qs: req.query,
       headers: {
-        'Authorization': 'Token token="' + key + '"'
-      }
+        Authorization: 'Token token="' + key + '"',
+      },
     };
 
     request.get(options, function(err, response, data) {
-      if (err) { return res.status(500).send(); }
+      if (err) {
+        return res.status(500).send();
+      }
 
       return res.json(JSON.parse(data));
     });

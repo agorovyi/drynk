@@ -1,23 +1,229 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Lora:700');
+
+/* Variables */
+
+$Lora: 'Lora', serif;
+$Roboto: 'Roboto', sans-serif;
+$border-common: 1px solid #dde4ef;
+$border-line: 1px solid #f3f1f3;
+$shadow-common: 2px 2px 5px 0 rgba(0, 0, 0, 0.05);
+$normal: 10px;
+$white: #ffffff;
+$dark-gray: #423c44;
+$medium-gray: #6f6a71;
+$light-gray: #9e9a9f;
+
+/* Mixins */
+
+@mixin product-mixin() {
+  background: $white;
+  width: 204px;
+  border: $border-common;
+  box-shadow: $shadow-common;
+  margin-bottom: $normal;
+  padding: $normal * 2;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    height: 150px;
+    width: auto;
+  }
+
+  .product-info {
+    text-align: center;
+
+    h2 {
+      font-family: $Roboto;
+      font-size: 1.25em;
+      color: $dark-gray;
+    }
+
+    &__bottom {
+      border-top: $border-line;
+      min-width: 200px;
+      padding-top: $normal / 2;
+
+      .description {
+        line-height: 0.5em;
+
+        h3 {
+          font-size: 0.875em;
+          color: $medium-gray;
+        }
+
+        p {
+          font-size: 0.75em;
+          font-weight: 100;
+          color: $light-gray;
+        }
+      }
+
+      .sp {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        &-stock {
+          text-transform: uppercase;
+          font-size: 0.688em;
+          color: $medium-gray;
+          letter-spacing: 0.92px;
+        }
+
+        &-price {
+          color: $medium-gray;
+          font-weight: bold;
+          span {
+            font-size: 0.688em;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin info-bottom() {
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    .sp {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+
+      &-stock {
+        order: 1;
+      }
+
+      &-price {
+        order: 0;
+      }
+    }
+  }
+}
+
+/* App Styles */
+
 .App {
-  text-align: center;
+  font-family: $Roboto;
+  max-width: 1280px;
+  margin: 0 auto;
 
-  header {
-    background-color: #222;
-    padding: 20px;
-    color: white;
+  .header-container {
+    background-color: $white;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: $border-common;
+    border-top: none;
+    box-shadow: $shadow-common;
 
-    .title {
-      font-size: 1.5em;
+    header {
+      flex-grow: 1;
+      max-width: 770px;
+      margin: 0 auto;
+
+      .filter {
+        position: absolute;
+        z-index: 1;
+        cursor: pointer;
+      }
+
+      h1 {
+        font-family: $Lora;
+        font-size: 1.5em;
+        text-align: center;
+        margin: 0;
+        transform: rotateY(180deg);
+        color: $dark-gray;
+      }
+
+      @media (max-width: 767px) {
+        .filter {
+          padding-left: $normal * 2;
+        }
+      }
     }
   }
 
-  .intro {
-    margin-top: 10px;
-    font-size: large;
+  .search {
+    max-width: 730px;
+    margin: 0 auto;
+    background-color: $white;
+    border: $border-common;
+    border-top: none;
+    box-shadow: $shadow-common;
+    padding: $normal * 2;
 
-    ul {
-      margin-top: 5px;
-      list-style-position: inside;
+    input {
+      border: $border-common;
+      font-size: 1em;
+      padding: $normal;
+      width: calc(100% - 20px);
+    }
+  }
+
+  .listview {
+    flex-grow: 1;
+    max-width: 770px;
+    margin: $normal auto;
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .product {
+      @include product-mixin();
+
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+
+      @media (min-width: 768px) {
+        &--featured {
+          width: 100%;
+          flex-direction: row;
+          padding: $normal * 2 $normal * 6;
+
+          img {
+            height: 260px;
+          }
+
+          .product-info {
+            flex-grow: 1;
+            text-align: left;
+
+            h2 {
+              font-size: 1.875em;
+            }
+
+            @include info-bottom();
+          }
+        }
+
+        &--secondary {
+          width: 335px;
+
+          .product-info {
+            flex-grow: 1;
+            text-align: left;
+            @include info-bottom();
+
+            &__bottom {
+              min-width: 315px;
+            }
+          }
+        }
+      }
     }
   }
 }

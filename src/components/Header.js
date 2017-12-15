@@ -38,9 +38,9 @@ class Header extends Component {
           <h1>Drynk</h1>
         </header>
       </div>,
-      <div>
+      <div key="search">
         {this.state.toggleSearch && (
-          <div className="search" key="search">
+          <div className="search">
             <input
               type="text"
               placeholder="Search"

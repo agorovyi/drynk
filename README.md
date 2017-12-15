@@ -1,7 +1,7 @@
-Drynk App
+Drynk App :beer: :cocktail: :tropical_drink: :wine_glass:
 ============
 
-**Drynk**  :beer: :cocktail: :tropical_drink: :wine_glass: is an LCBO products browsing app that was built with React consuming LCBO API.
+**Drynk** is an LCBO products browsing app that was built with React consuming LCBO API.
 
 Instructions
 ===============
